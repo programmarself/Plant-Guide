@@ -12,14 +12,14 @@ pd.concat([
 
 @app.route('/')
 def home():
-    categories = data['Category'].unique()
+    categories =['Category'].unique()
     return render_template('index.html', categories=categories)
 
 @app.route('/plants')
 def plants():
     category = request.args.get('category')
     query = request.args.get('query', '').lower()
-    filtered_data = data
+    filtered_data 
 
     if category:
         filtered_data = filtered_data[filtered_data['Category'] == category]
