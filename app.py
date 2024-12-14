@@ -4,7 +4,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load data
-pd.concat([
+data = pd.concat([
     pd.read_csv('summer.csv',encoding='latin1').assign(Category='Summer'),
     pd.read_csv('winter.csv',encoding='latin1').assign(Category='Winter'),
     pd.read_csv('spring.csv',encoding='latin1').assign(Category='Spring')
@@ -12,14 +12,14 @@ pd.concat([
 
 @app.route('/')
 def home():
-    categories =['Category'].unique()
+    categories = data['Category'].unique()
     return render_template('index.html', categories=categories)
 
 @app.route('/plants')
 def plants():
     category = request.args.get('category')
     query = request.args.get('query', '').lower()
-    filtered_data 
+    filtered_data = data
 
     if category:
         filtered_data = filtered_data[filtered_data['Category'] == category]
