@@ -4,7 +4,7 @@ import pandas as pd
 app = Flask(__name__)
 
 # Load data
-data = pd.concat([
+pd.concat([
     pd.read_csv('summer.csv',encoding='latin1').assign(Category='Summer'),
     pd.read_csv('winter.csv',encoding='latin1').assign(Category='Winter'),
     pd.read_csv('spring.csv',encoding='latin1').assign(Category='Spring')
